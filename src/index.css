@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "nevera";
+  src: url("./assets/fonts/nevera.regular.otf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
