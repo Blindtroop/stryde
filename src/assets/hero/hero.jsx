@@ -1,3 +1,6 @@
+import { motion } from "motion/react";
+
+
 export default function Hero() {
   return (
     <section className="px-6 py-16 justify-center">
@@ -14,7 +17,19 @@ export default function Hero() {
       </div>
         {/* Image card — pill shape on top, rounded square on bottom */}
         <div className="relative z-10 flex items-end justify-center py-6">
-          <img src="https://i.postimg.cc/3xG4CNCF/erasebg-transformed.png" alt="product" className="w-150 h-150 object-cover" />
+           <motion.img
+          src="https://i.postimg.cc/3xG4CNCF/erasebg-transformed.png"
+          alt="product"
+          className="w-150 h-150 md:w-150 md:h-150 object-cover"
+          animate={{
+            y: [0, -15, 0], // float up and down
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
         </div>
       </div>
       <p className="text-gray-500 text-base leading-relaxed max-w-xs mx-auto mb-8">
