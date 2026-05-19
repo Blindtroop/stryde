@@ -8,6 +8,7 @@ export default function Arrivals() {
       image: "https://i.postimg.cc/1znDS08W/Adobe-Express-file-(1).png",
       title: "adidas Samba OG 'White/Black",
       description: "An absolute icon of street culture, this classic silhouette pairs a crisp white leather upper with a signature grey suede T-toe and a timeless gum rubber outsole. Its low-profile design and contrasting black three-stripes deliver an effortless, retro-inspired look that outlasts any trend",
+      price:"Ksh 34,000"
     },
     {
       image: "https://i.postimg.cc/WzNMBhQv/Untitled.png",
