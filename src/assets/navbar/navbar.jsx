@@ -20,7 +20,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-[#222222]">
   <div className="relative flex justify-between items-center px-4 md:px-10 py-4">
 
     {/* Logo — absolutely centered */}
