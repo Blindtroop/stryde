@@ -44,13 +44,13 @@ export default function Navbar() {
 
       {/* Fullscreen Menu */}
       <div
-        className={`fixed inset-0 bg-white/95 backdrop-blur-md flex flex-col items-center justify-center gap-10 text-[#1e6c9d] text-2xl transition-all duration-500 z-50 ${
+        className={`fixed inset-0 bg-[#222222] backdrop-blur-md flex flex-col items-center justify-center gap-10 text-[#89E900] text-2xl transition-all duration-500 z-50 ${
           open ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
         {/* Close button */}
         <button
-          className="absolute top-5 right-5 text-3xl text-[#1e6c9d]"
+          className="absolute top-5 right-5 text-3xl text-[#89E900]"
           onClick={() => setOpen(false)}
         >
           <FaTimes />
@@ -65,11 +65,11 @@ export default function Navbar() {
           >
             {({ isActive }) => (
               <>
-                <span className={isActive ? "text-[#1e6c9d]" : "hover:text-gray-700"}>
+                <span className={isActive ? "text-[#89E900]" : "hover:text-[#89E900]"}>
                   {link.label}
                 </span>
                 <span
-                  className={`absolute left-0 -bottom-1 h-[2px] bg-[#1e6c9d] transition-all duration-300 ${
+                  className={`absolute left-0 -bottom-1 h-[2px] bg-[#89E900] transition-all duration-300 ${
                     isActive ? "w-full" : "w-0 group-hover:w-full"
                   }`}
                 />
@@ -82,7 +82,7 @@ export default function Navbar() {
         <NavLink
           to="/shop"
           onClick={() => setOpen(false)}
-          className="bg-[#1e6c9d] text-white px-6 py-3 rounded-full flex items-center gap-3"
+          className="bg-[#89E900] text-[#222222] px-6 py-3 rounded-full flex items-center gap-3"
         >
           <FaShoppingCart />
           Start Shopping
@@ -92,7 +92,7 @@ export default function Navbar() {
         <Link
           to="/contact"
           onClick={() => setOpen(false)}
-          className="bg-[#1e6c9d] text-white px-6 py-3 rounded-full flex items-center gap-3"
+          className="bg-[#89E900] text-[#222222] px-6 py-3 rounded-full flex items-center gap-3"
         >
           <FaPhone />
           Call Us

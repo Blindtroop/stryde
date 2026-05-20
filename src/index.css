@@ -6,3 +6,17 @@
   font-weight: 600;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "bigtime";
+  src: url("./assets/fonts/Bigtimes.otf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "atoma";
+  src: url("./assets/fonts/Attoma.otf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
