@@ -56,7 +56,7 @@ export default function Arrivals() {
   return (
     <section className="w-full flex flex-col items-center py-16">
 
-      <h1 className="text-2xl font-semibold mb-10">
+      <h1 className="text-2xl font-semibold mb-10 font-sans">
         OUR BEST SELLERS
       </h1>
 

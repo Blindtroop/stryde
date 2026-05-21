@@ -1,6 +1,6 @@
 export default function Flash() {
   return (
-    <section className="h-120 flex items-center justify-center px-6 bg-[#222222]">
+    <section className="h-120 flex items-center relative overflow-hidden justify-center px-6 bg-[#222222]">
         <div className="absolute inset-0 opacity-20 z-0">
         <div
           className="w-full h-full"
