@@ -13,10 +13,8 @@ export default function Navbar() {
 
   const links = [
     { to: "/", label: "Home" },
-    { to: "/fragrances", label: "Fragrances" },
-    { to: "/flavors", label: "Flavors" },
-    { to: "/essential-oils", label: "Essential Oils" },
-    { to: "/about", label: "About Us" },
+    { to: "/fragrances", label: "Mens" },
+    { to: "/flavors", label: "Women" },
   ];
 
   return (
@@ -44,7 +42,7 @@ export default function Navbar() {
 
       {/* Fullscreen Menu */}
       <div
-        className={`fixed inset-0 bg-[#222222] backdrop-blur-md flex flex-col items-center justify-center gap-10 text-[#89E900] text-2xl transition-all duration-500 z-50 ${
+        className={`fixed inset-0 bg-[#222222] backdrop-blur-md flex flex-col items-center justify-center  gap-10 text-[#89E900] text-2xl transition-all duration-500 z-50 ${
           open ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >

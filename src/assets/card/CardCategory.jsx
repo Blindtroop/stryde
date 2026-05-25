@@ -1,12 +1,12 @@
 export default function CardCategory({ image, title, category }) {
   return (
-    <div className="relative w-full h-[520px] rounded-3xl overflow-hidden group border border-neutral-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ease-out">
+    <div className="relative w-full h-[520px] rounded-3xl overflow-hidden group border border-neutral-100 shadow-sm ">
       
       {/* Product Image */}
       <img
         src={image}
         alt={title}
-        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 group-hover:rotate-1 transition-transform duration-700 ease-out"
       />
 
       
