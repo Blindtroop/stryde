@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 
 export default function Hero() {
   return (
-    <section className="px-6 py-8 justify-center h-170 bg-[#222222]">
+    <section className="px-6 py-8 justify-center h-185 bg-[#222222]">
       <div className="flex flex-col md:flex-row items-center justify-center gap-2">
         <div className="flex flex-col items-start text-left max-w-xl">
           <h1 className="text-2xl font-medium mb-2">
