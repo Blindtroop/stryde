@@ -4,7 +4,7 @@ export default function Categories() {
   const products = [
     {
       image:
-        "https://i.postimg.cc/wvhVrxv8/pexels-indigentesce-8979069.jpg",
+        "https://i.postimg.cc/635PCGcD/pexels-introspectivedsgn-4211339.jpg",
       title: "URBAN MOTION",
       category:"STREETWEAR"
     },
