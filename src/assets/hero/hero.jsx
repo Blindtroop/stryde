@@ -31,8 +31,8 @@ export default function Hero() {
           <div
             className="
               absolute
-              w-[380px]
-              h-[420px]
+              w-95
+              h-105
               bg-[#89E900]
               opacity-80
               -skew-y-12

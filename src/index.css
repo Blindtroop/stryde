@@ -20,3 +20,10 @@
   font-weight: 600;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "good";
+  src: url("./assets/fonts/Good\ Times\ Rg.otf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
