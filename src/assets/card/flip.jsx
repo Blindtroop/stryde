@@ -137,7 +137,6 @@ export default function FlipCard() {
     <>
       <style>{styles}</style>
       <div className="flex flex-col items-center mt-14">
-        <span className="section-label">What We Offer</span>
         <div className="section-divider" />
         <div className="flex flex-row gap-6">
           <Card
