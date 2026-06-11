@@ -6,16 +6,16 @@ export default function Hero() {
       <div className="flex flex-col md:flex-row items-center justify-center gap-2">
         <div className="flex flex-col items-start text-left max-w-xl">
           <h1 className="text-2xl font-medium mb-2">
-            <span className="text-[#89E900] font-sans text-5xl">
+            <span className="text-[#89E900] font-sans text-3xl md:text-5xl">
               Wear it,
             </span>
             <br />
-            <span className="text-white font-sans text-5xl">
+            <span className="text-white font-sans text-3xl md:text-5xl">
               your way.
             </span>
           </h1>
 
-          <p className="font-medium mb-6 text-white/80 leading-relaxed">
+          <p className="font-medium mb-6 text-white/80 leading-relaxed text-sm md:text-base">
             Discover footwear designed for every part of your day — from
             fast-paced mornings to laid-back evenings. Clean silhouettes,
             premium comfort, and timeless style come together to help you move
@@ -31,8 +31,8 @@ export default function Hero() {
           <div
             className="
               absolute
-              w-95
-              h-105
+              w-48 h-64
+              md:w-95 md:h-105
               bg-[#89E900]
               opacity-80
               -skew-y-12
@@ -44,7 +44,7 @@ export default function Hero() {
             <motion.img
               src="https://i.postimg.cc/3xG4CNCF/erasebg-transformed.png"
               alt="product"
-              className="w-170 h-170 md:w-170 md:h-170 object-cover relative z-10"
+              className="w-64 h-64 md:w-170 md:h-170 object-cover relative z-10"
               animate={{ y: [0, -15, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             />
