@@ -32,7 +32,7 @@ export default function ComingSoon() {
           </a>
           </div>
         <p className="mt-12 text-white/30 text-sm">
-          © 2026 • Under Construction
+          © 2026 • Lance Kaluhi. All rights reserved.
         </p>
       </div>
       
