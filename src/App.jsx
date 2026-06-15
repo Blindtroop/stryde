@@ -7,22 +7,22 @@ import Categories from './assets/categories/categories'
 import Action from './assets/cta/Action'
 import TrustedPartners from './assets/partners/partners'
 import Footer from './assets/footer/footer'
-import ComingSoon from './assets/404/404'
+// import ComingSoon from './assets/404/404'
 import './App.css'
 
 function App() {
 
   return (
     <>
-      <ComingSoon />
-      {/* <Navbar/>
+      {/* <ComingSoon /> */}
+      <Navbar/>
       <Hero />
       <Arrivals />
       <Flash />
       <Categories />
       <Action />
       <TrustedPartners />
-      <Footer /> */}
+      <Footer />
       {/* <CardCategory /> */}
     </>
   )
