@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "name": "Stryde Phantom",
+    "sub": "Low Top Trainer",
+    "price": 8500,
+    "category": "Trainers",
+    "imageUrl": "https://i.postimg.cc/1znDS08W/Adobe-Express-file-(1).png",
+    "sizes": ["40", "41", "42", "43", "44", "45"],
+    "stock": "in",
+    "isNew": true
+  },
+  {
+    "id": 2,
+    "name": "Stryde Apex",
+    "sub": "Running Performance",
+    "price": 11200,
+    "category": "Running",
+    "image": "https://i.postimg.cc/WzNMBhQv/Untitled.png",
+    "sizes": ["39", "40", "41", "42", "43", "44"],
+    "stock": "in",
+    "isNew": false
+  },
+  {
+    "id": 3,
+    "name": "Stryde Edge",
+    "sub": "Street Lifestyle",
+    "price": 9800,
+    "category": "Lifestyle",
+    "image": null,
+    "sizes": ["40", "41", "43", "44"],
+    "stock": "low",
+    "isNew": false
+  },
+  {
+    "id": 4,
+    "name": "Stryde Volt",
+    "sub": "Court Sneaker",
+    "price": 7900,
+    "category": "Court",
+    "image": null,
+    "sizes": ["38", "39", "40", "41", "42"],
+    "stock": "in",
+    "isNew": true
+  },
+  {
+    "id": 5,
+    "name": "Stryde Summit",
+    "sub": "Trail Runner",
+    "price": 13500,
+    "category": "Running",
+    "image": null,
+    "sizes": ["41", "42", "43", "44", "45"],
+    "stock": "in",
+    "isNew": false
+  },
+  {
+    "id": 6,
+    "name": "Stryde Flare",
+    "sub": "Women's Low",
+    "price": 8200,
+    "category": "Lifestyle",
+    "image": null,
+    "sizes": ["36", "37", "38", "39", "40"],
+    "stock": "in",
+    "isNew": true
+  },
+  {
+    "id": 7,
+    "name": "Stryde Base",
+    "sub": "Classic White",
+    "price": 6500,
+    "category": "Trainers",
+    "image": null,
+    "sizes": ["39", "40", "41", "42", "43"],
+    "stock": "out",
+    "isNew": false
+  },
+  {
+    "id": 8,
+    "name": "Stryde Noir",
+    "sub": "All-Black Court",
+    "price": 10500,
+    "category": "Court",
+    "image": null,
+    "sizes": ["40", "41", "42", "43", "44", "45"],
+    "stock": "in",
+    "isNew": false
+  }
+]
