@@ -38,9 +38,9 @@ function ShoeCard({ shoe, onAdd }) {
     <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl overflow-hidden hover:border-[#89E900] hover:-translate-y-0.5 transition-all duration-200">
       {/* Image area */}
       <div className="bg-[#222] h-44 flex items-center justify-center relative">
-        {shoe.image ? (
+        {shoe.imageUrl ? (
           <img
-            src={shoe.image}
+            src={shoe.imageUrl}
             alt={shoe.name}
             className="w-full h-full object-cover"
           />

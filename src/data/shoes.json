@@ -16,7 +16,7 @@
     "sub": "Running Performance",
     "price": 11200,
     "category": "Running",
-    "image": "https://i.postimg.cc/WzNMBhQv/Untitled.png",
+    "imageUrl": "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
     "sizes": ["39", "40", "41", "42", "43", "44"],
     "stock": "in",
     "isNew": false
@@ -27,7 +27,7 @@
     "sub": "Street Lifestyle",
     "price": 9800,
     "category": "Lifestyle",
-    "image": null,
+    "imageUrl": "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
     "sizes": ["40", "41", "43", "44"],
     "stock": "low",
     "isNew": false
@@ -38,7 +38,7 @@
     "sub": "Court Sneaker",
     "price": 7900,
     "category": "Court",
-    "image": null,
+    "imageUrl": "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
     "sizes": ["38", "39", "40", "41", "42"],
     "stock": "in",
     "isNew": true
@@ -49,7 +49,7 @@
     "sub": "Trail Runner",
     "price": 13500,
     "category": "Running",
-    "image": null,
+    "imageUrl": null,
     "sizes": ["41", "42", "43", "44", "45"],
     "stock": "in",
     "isNew": false
@@ -60,7 +60,7 @@
     "sub": "Women's Low",
     "price": 8200,
     "category": "Lifestyle",
-    "image": null,
+    "imageUrl": null,
     "sizes": ["36", "37", "38", "39", "40"],
     "stock": "in",
     "isNew": true
@@ -71,7 +71,7 @@
     "sub": "Classic White",
     "price": 6500,
     "category": "Trainers",
-    "image": null,
+    "imageUrl": null,
     "sizes": ["39", "40", "41", "42", "43"],
     "stock": "out",
     "isNew": false
@@ -82,7 +82,7 @@
     "sub": "All-Black Court",
     "price": 10500,
     "category": "Court",
-    "image": null,
+    "imageUrl": null,
     "sizes": ["40", "41", "42", "43", "44", "45"],
     "stock": "in",
     "isNew": false
