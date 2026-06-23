@@ -5,7 +5,13 @@
     "sub": "Low Top Trainer",
     "price": 8500,
     "category": "Trainers",
-    "imageUrl": "https://i.postimg.cc/1znDS08W/Adobe-Express-file-(1).png",
+    "gender": "mens",
+     "images": [
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png"
+  ],
     "sizes": ["40", "41", "42", "43", "44", "45"],
     "stock": "in",
     "isNew": true
@@ -16,7 +22,13 @@
     "sub": "Running Performance",
     "price": 11200,
     "category": "Running",
-    "imageUrl": "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "gender": "mens",
+    "images": [
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png"
+  ],
     "sizes": ["39", "40", "41", "42", "43", "44"],
     "stock": "in",
     "isNew": false
@@ -27,7 +39,14 @@
     "sub": "Street Lifestyle",
     "price": 9800,
     "category": "Lifestyle",
-    "imageUrl": "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "gender": "mens",
+
+    "images": [
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png"
+  ],
     "sizes": ["40", "41", "43", "44"],
     "stock": "low",
     "isNew": false
@@ -37,8 +56,14 @@
     "name": "Stryde Volt",
     "sub": "Court Sneaker",
     "price": 7900,
-    "category": "Court",
-    "imageUrl": "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "category": "Ladies",
+    "gender": "mens",
+    "images": [
+    "https://i.postimg.cc/WzNMBhQv/Untitled.png",
+    "https://i.postimg.cc/WzNMBhQv/Untitled.png",
+    "https://i.postimg.cc/WzNMBhQv/Untitled.png",
+    "https://i.postimg.cc/WzNMBhQv/Untitled.png"
+  ],
     "sizes": ["38", "39", "40", "41", "42"],
     "stock": "in",
     "isNew": true
@@ -49,7 +74,13 @@
     "sub": "Trail Runner",
     "price": 13500,
     "category": "Running",
-    "imageUrl": null,
+    "gender": "mens",
+    "images": [
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png"
+  ],
     "sizes": ["41", "42", "43", "44", "45"],
     "stock": "in",
     "isNew": false
@@ -60,7 +91,14 @@
     "sub": "Women's Low",
     "price": 8200,
     "category": "Lifestyle",
-    "imageUrl": null,
+    "gender": "mens",
+
+    "images": [
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png"
+  ],
     "sizes": ["36", "37", "38", "39", "40"],
     "stock": "in",
     "isNew": true
@@ -71,7 +109,14 @@
     "sub": "Classic White",
     "price": 6500,
     "category": "Trainers",
-    "imageUrl": null,
+    "gender": "mens",
+
+     "images": [
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png"
+  ],
     "sizes": ["39", "40", "41", "42", "43"],
     "stock": "out",
     "isNew": false
@@ -82,7 +127,14 @@
     "sub": "All-Black Court",
     "price": 10500,
     "category": "Court",
-    "imageUrl": null,
+    "gender": "womens",
+
+     "images": [
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png"
+  ],
     "sizes": ["40", "41", "42", "43", "44", "45"],
     "stock": "in",
     "isNew": false

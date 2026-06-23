@@ -9,6 +9,7 @@ import Categories from "./assets/categories/categories";
 import Action from "./assets/cta/Action";
 import TrustedPartners from "./assets/partners/partners";
 import Shopping from "./assets/shopping/shopping";
+import CartModal from "./assets/cart/cart";
 import Footer from "./assets/footer/footer";
 
 import "./App.css";
@@ -27,28 +28,97 @@ function Home() {
   );
 }
 
-function App() {
-  const [bagCount, setBagCount] = useState(0);
+export default function App() {
+  const [cartItems, setCartItems] = useState([]);
+  const [cartOpen, setCartOpen] = useState(false);
+
+  // Add item
+  function addToBag(shoe, size) {
+    setCartItems((prev) => {
+      const existing = prev.find(
+        (item) => item.id === shoe.id && item.size === size,
+      );
+
+      if (existing) {
+        return prev.map((item) =>
+          item.id === shoe.id && item.size === size
+            ? { ...item, qty: item.qty + 1 }
+            : item,
+        );
+      }
+
+      return [
+        ...prev,
+        {
+          id: shoe.id,
+          name: shoe.name,
+          size,
+          price: shoe.price,
+          image: shoe.images?.[0] || shoe.imageUrl || "",
+          qty: 1,
+        },
+      ];
+    });
+  }
+
+  // Remove item
+  function removeFromBag(id, size) {
+    setCartItems((prev) =>
+      prev.filter((item) => !(item.id === id && item.size === size)),
+    );
+  }
+
+  // Update quantity
+  function updateQty(id, size, qty) {
+    if (qty < 1) {
+      removeFromBag(id, size);
+      return;
+    }
+
+    setCartItems((prev) =>
+      prev.map((item) =>
+        item.id === id && item.size === size ? { ...item, qty } : item,
+      ),
+    );
+  }
+
+  const bagCount = cartItems.reduce((sum, item) => sum + item.qty, 0);
 
   return (
     <>
-      <Navbar bagCount={bagCount} />
+      <Navbar bagCount={bagCount} onOpenCart={() => setCartOpen(true)} />
 
       <Routes>
         <Route path="/" element={<Home />} />
-
         <Route
           path="/shop"
           element={
             <Shopping
               bagCount={bagCount}
-              onAddToBag={() => setBagCount((c) => c + 1)}
+              onAddToBag={addToBag}
+              onOpenCart={() => setCartOpen(true)}
+            />
+          }
+        />
+        <Route
+          path="/shop/:gender"
+          element={
+            <Shopping
+              bagCount={bagCount}
+              onAddToBag={addToBag}
+              onOpenCart={() => setCartOpen(true)}
             />
           }
         />
       </Routes>
+
+      <CartModal
+        isOpen={cartOpen}
+        onClose={() => setCartOpen(false)}
+        items={cartItems}
+        onRemove={removeFromBag}
+        onUpdateQty={updateQty}
+      />
     </>
   );
 }
-
-export default App;
