@@ -80,7 +80,7 @@ export default function Arrivals({ onAddToBag }) {
   };
 
   return (
-    <section className="w-full flex flex-col items-center py-16 px-4">
+    <section id='arrivals' className="w-full flex flex-col items-center py-16 px-4">
       <h1 className="text-2xl md:text-3xl font-semibold mb-10 font-sans text-center">
         OUR BEST SELLERS
       </h1>

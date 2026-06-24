@@ -1,6 +1,10 @@
 import { motion } from "motion/react";
 
+
 export default function Hero() {
+   const handleClick = () => {
+    document.getElementById("arrivals")?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <section className="px-6 py-16 md:py-8 bg-[#222222] min-h-screen md:min-h-0 md:h-[85vh] flex items-center">
       <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-2 w-full max-w-6xl mx-auto">
@@ -24,7 +28,9 @@ export default function Hero() {
             confidently in every step.
           </p>
 
-          <button className="bg-[#89E900] text-[#222222] px-6 py-2.5 rounded-2xl font-medium text-sm hover:scale-105 transition">
+          <button 
+          onClick={handleClick}
+          className="bg-[#89E900] text-[#222222] px-6 py-2.5 rounded-2xl font-medium text-sm hover:scale-105 transition">
             Start your journey here
           </button>
         </div>

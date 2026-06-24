@@ -7,21 +7,25 @@ export default function Categories() {
         "https://i.postimg.cc/635PCGcD/pexels-introspectivedsgn-4211339.jpg",
       title: "URBAN MOTION",
       category: "STREETWEAR",
+      link: "/shop", 
     },
     {
       image: "https://i.postimg.cc/HxZxdXj4/pexels-alokkd1-32644170.jpg",
       title: "OFFICE STANDARD",
       category: "FORMAL WEAR",
+      link: "/shop", 
     },
     {
       image: "https://i.postimg.cc/TPSdsGSf/pexels-ihsanaditya-5610717.jpg",
       title: "HER COLLECTION",
       category: "WOMEN'S",
+      link: "/shop/womens", 
     },
     {
       image: "https://i.postimg.cc/dQRF28Jg/pexels-pedrofurtadoo-31451006.jpg",
       title: "EVERYDAY COMFORT",
       category: "COMFORT",
+      link: "/shop", 
     },
   ];
 

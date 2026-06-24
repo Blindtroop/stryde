@@ -14,12 +14,12 @@ import Footer from "./assets/footer/footer";
 
 import "./App.css";
 
-function Home({onAddToBag}) {
+function Home({ onAddToBag, onOpenCart }) {
   return (
     <>
       <Hero />
       <Arrivals onAddToBag={onAddToBag} />
-      <Flash />
+      <Flash onAddToBag={onAddToBag} onOpenCart={onOpenCart} />
       <Categories />
       <Action />
       <TrustedPartners />
@@ -89,7 +89,13 @@ export default function App() {
       <Navbar bagCount={bagCount} onOpenCart={() => setCartOpen(true)} />
 
       <Routes>
-      <Route path="/" element={<Home onAddToBag={addToBag} />} />        <Route
+        <Route
+          path="/"
+          element={
+            <Home onAddToBag={addToBag} onOpenCart={() => setCartOpen(true)} />
+          }
+        />{" "}
+        <Route
           path="/shop"
           element={
             <Shopping

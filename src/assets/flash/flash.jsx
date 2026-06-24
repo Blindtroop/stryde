@@ -1,4 +1,10 @@
-export default function Flash() {
+export default function Flash({ onAddToBag, onOpenCart }) {
+  const featuredProduct = {
+    id: "ozweego-001",
+    name: "Adidas Ozweego",
+    price: 12999,
+    images: ["https://i.postimg.cc/MK7nqnss/Untitled-(5).png"],
+  };
   return (
     <section className="min-h-120 h-auto md:h-120 flex items-center relative overflow-hidden justify-center px-6 py-10 md:py-0 bg-[#222222]">
       <div className="absolute inset-0 opacity-20 z-0">
@@ -11,7 +17,7 @@ export default function Flash() {
           }}
         />
       </div>
-      <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 items-center gap-10">
+      <div className="max-w-6xl w-full relative z-10 grid grid-cols-1 md:grid-cols-2 items-center gap-10">
         {/* Left Side - Text */}
         <div className="text-center md:text-left">
           <h1
@@ -32,7 +38,14 @@ export default function Flash() {
             gone
           </p>
 
-          <button className="bg-[#B6B3E3] px-6 py-3 rounded-2xl text-black font-medium">
+          <button
+          style={{ cursor: "pointer" }}
+            onClick={() => {
+              onAddToBag(featuredProduct, "UK 9");
+              onOpenCart();
+            }}
+            className="cursor-pointer bg-[#B6B3E3] px-6 py-3 rounded-2xl text-black font-medium "
+          >
             Shop Now
           </button>
         </div>
