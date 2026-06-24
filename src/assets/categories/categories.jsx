@@ -7,13 +7,13 @@ export default function Categories() {
         "https://i.postimg.cc/635PCGcD/pexels-introspectivedsgn-4211339.jpg",
       title: "URBAN MOTION",
       category: "STREETWEAR",
-      link: "/shop", 
+      link: "/shop?category=Streetwear",
     },
     {
       image: "https://i.postimg.cc/HxZxdXj4/pexels-alokkd1-32644170.jpg",
       title: "OFFICE STANDARD",
       category: "FORMAL WEAR",
-      link: "/shop", 
+      link: "/shop?category=Formal" 
     },
     {
       image: "https://i.postimg.cc/TPSdsGSf/pexels-ihsanaditya-5610717.jpg",
@@ -25,7 +25,7 @@ export default function Categories() {
       image: "https://i.postimg.cc/dQRF28Jg/pexels-pedrofurtadoo-31451006.jpg",
       title: "EVERYDAY COMFORT",
       category: "COMFORT",
-      link: "/shop", 
+      link: "/shop?category=Comfort",
     },
   ];
 
@@ -57,6 +57,7 @@ export default function Categories() {
               category={item.category}
               description={item.description}
               price={item.price}
+               link={item.link}
             />
           ))}
         </div>

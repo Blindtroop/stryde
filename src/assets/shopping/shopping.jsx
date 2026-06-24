@@ -1,40 +1,33 @@
-import { useState, useRef, useEffect } from "react";
-import { useParams } from "react-router-dom";
-
+import { useState, useRef } from "react";
+import { useParams, useSearchParams } from "react-router-dom";
 import { FaBagShopping } from "react-icons/fa6";
 import shoes from "/Users/SHA 02/stryde/src/data/shoes.json";
 
-// ─── Derived categories from the JSON ─────────────────────────────────────────
+// ─── Derived categories from JSON ─────────────────────────────────────────────
 const CATEGORIES = ["All", ...new Set(shoes.map((s) => s.category))];
 
-// ─── Stock helpers ─────────────────────────────────────────────────────────────
+// ─── Stock helper ──────────────────────────────────────────────────────────────
 function stockMeta(stock) {
   if (stock === "in") return { color: "bg-[#89E900]", label: "In stock" };
   if (stock === "low") return { color: "bg-amber-400", label: "Last few" };
   return { color: "bg-[#444]", label: "Sold out" };
 }
 
-// ─── Individual shoe card ──────────────────────────────────────────────────────
+// ─── Shoe Card ─────────────────────────────────────────────────────────────────
 function ShoeCard({ shoe, onAdd }) {
-  const [activeImage, setActiveImage] = useState(
-    shoe.images?.[0] || shoe.imageUrl || "",
-  );
-  const [selectedSize, setSelectedSize] = useState("");
-  const [sizeError, setSizeError] = useState(false);
-  const thumbsRef = useRef(null);
-  const { color, label } = stockMeta(shoe.stock);
-  const isSoldOut = shoe.stock === "out";
-
-  // Normalise both images[] and legacy imageUrl into one array
   const allImages = shoe.images?.length
     ? shoe.images
     : shoe.imageUrl
-      ? [shoe.imageUrl]
-      : [];
+    ? [shoe.imageUrl]
+    : [];
 
-  function scrollThumbs(dir) {
-    thumbsRef.current?.scrollBy({ left: dir * 72, behavior: "smooth" });
-  }
+  const [activeImage, setActiveImage] = useState(allImages[0] || "");
+  const [selectedSize, setSelectedSize] = useState("");
+  const [sizeError, setSizeError] = useState(false);
+  const thumbsRef = useRef(null);
+
+  const { color, label } = stockMeta(shoe.stock);
+  const isSoldOut = shoe.stock === "out";
 
   function handleAdd() {
     if (!selectedSize) {
@@ -52,17 +45,17 @@ function ShoeCard({ shoe, onAdd }) {
   }
 
   return (
-    <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl overflow-hidden hover:border-[#89E900] hover:-translate-y-0.5 transition-all duration-200">
+    <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl overflow-hidden hover:border-[#89E900] hover:-translate-y-0.5 transition-all duration-200 flex flex-col">
+
       {/* ── Image area ── */}
       <div className="bg-[#222] p-3 relative">
-        {/* Main image with crossfade */}
         <div className="h-44 flex items-center justify-center overflow-hidden">
           {activeImage ? (
             <img
               key={activeImage}
               src={activeImage}
               alt={shoe.name}
-              className="w-60 h-60 object-cover animate-fadeIn hover:scale-105 transition-transform duration-300"
+              className="w-full h-full object-contain animate-fadeIn hover:scale-105 transition-transform duration-300"
             />
           ) : (
             <div className="flex flex-col items-center gap-1">
@@ -71,55 +64,6 @@ function ShoeCard({ shoe, onAdd }) {
             </div>
           )}
         </div>
-
-        {/* Thumbnail strip — only shown when there are multiple images */}
-        {allImages.length > 1 && (
-          <div className="mt-3 flex items-center gap-1">
-            <button
-              onClick={() => scrollThumbs(-1)}
-              className="shrink-0 w-5 h-5 rounded-md bg-[#333] text-[#888] hover:text-[#f0f0f0] hover:bg-[#444] flex items-center justify-center transition-colors text-[10px]"
-              aria-label="Scroll thumbnails left"
-            >
-              ‹
-            </button>
-
-            <div
-              ref={thumbsRef}
-              className="flex gap-1.5 overflow-x-auto scroll-smooth"
-              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-            >
-              {allImages.map((img, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActiveImage(img)}
-                  className={`
-                    shrink-0 w-12 h-12 rounded-lg overflow-hidden border-2 transition-all duration-200
-                    ${
-                      activeImage === img
-                        ? "border-[#89E900] scale-105 brightness-110"
-                        : "border-transparent hover:border-[#444]"
-                    }
-                  `}
-                  aria-label={`View image ${i + 1}`}
-                >
-                  <img
-                    src={img}
-                    alt={`${shoe.name} view ${i + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                </button>
-              ))}
-            </div>
-
-            <button
-              onClick={() => scrollThumbs(1)}
-              className="shrink-0 w-5 h-5 rounded-md bg-[#333] text-[#888] hover:text-[#f0f0f0] hover:bg-[#444] flex items-center justify-center transition-colors text-[10px]"
-              aria-label="Scroll thumbnails right"
-            >
-              ›
-            </button>
-          </div>
-        )}
 
         {/* Badges */}
         {shoe.isNew && !isSoldOut && (
@@ -135,17 +79,49 @@ function ShoeCard({ shoe, onAdd }) {
       </div>
 
       {/* ── Card info ── */}
-      <div className="p-3.5">
+      <div className="p-3.5 flex flex-col flex-1">
+
+        {/* Thumbnail strip — above title, only when multiple images */}
+        {allImages.length > 1 && (
+          <div
+            ref={thumbsRef}
+            className="flex gap-1.5 overflow-x-auto scroll-smooth mb-2.5"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            {allImages.map((img, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveImage(img)}
+                className={`shrink-0 w-10 h-10 rounded-lg overflow-hidden border-2 transition-all duration-200
+                  ${activeImage === img
+                    ? "border-[#89E900] scale-105 brightness-110"
+                    : "border-transparent hover:border-[#444]"
+                  }`}
+                aria-label={`View image ${i + 1}`}
+              >
+                <img
+                  src={img}
+                  alt={`${shoe.name} view ${i + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              </button>
+            ))}
+          </div>
+        )}
+
+        {/* Name + sub */}
         <p className="text-[15px] font-semibold text-[#f0f0f0] leading-tight">
           {shoe.name}
         </p>
         <p className="text-[11px] text-[#666] mt-0.5 mb-2.5">{shoe.sub}</p>
 
+        {/* Stock indicator */}
         <div className="flex items-center gap-1.5 mb-2.5">
           <span className={`w-1.5 h-1.5 rounded-full ${color}`} />
           <span className="text-[11px] text-[#666]">{label}</span>
         </div>
 
+        {/* Size picker */}
         <div className="flex flex-wrap gap-1 mb-3">
           {shoe.sizes.map((sz) => (
             <button
@@ -153,10 +129,9 @@ function ShoeCard({ shoe, onAdd }) {
               onClick={() => handleSizePick(sz)}
               disabled={isSoldOut}
               className={`text-[10px] px-2 py-1 rounded border transition-all duration-150 font-medium
-                ${
-                  selectedSize === sz
-                    ? "border-[#89E900] text-[#89E900] bg-[#89E900]/10"
-                    : "border-[#2a2a2a] text-[#666] hover:border-[#444] hover:text-[#ccc]"
+                ${selectedSize === sz
+                  ? "border-[#89E900] text-[#89E900] bg-[#89E900]/10"
+                  : "border-[#2a2a2a] text-[#666] hover:border-[#444] hover:text-[#ccc]"
                 }
                 disabled:opacity-30 disabled:cursor-not-allowed`}
             >
@@ -165,7 +140,8 @@ function ShoeCard({ shoe, onAdd }) {
           ))}
         </div>
 
-        <div className="flex items-center justify-between">
+        {/* Price + add button */}
+        <div className="flex items-center justify-between mt-auto">
           <span className="text-[15px] font-bold text-[#89E900]">
             KES {shoe.price.toLocaleString()}
           </span>
@@ -178,53 +154,43 @@ function ShoeCard({ shoe, onAdd }) {
           </button>
         </div>
 
-        <p
-          className={`text-[10px] mt-1.5 h-3 transition-colors ${
-            sizeError ? "text-amber-400" : "text-[#555]"
-          }`}
-        >
+        {/* Size hint / error */}
+        <p className={`text-[10px] mt-1.5 h-3 transition-colors ${sizeError ? "text-amber-400" : "text-[#555]"}`}>
           {isSoldOut
             ? ""
             : sizeError
-              ? "Pick a size first"
-              : selectedSize
-                ? `Size ${selectedSize} selected`
-                : "Select a size"}
+            ? "Pick a size first"
+            : selectedSize
+            ? `Size ${selectedSize} selected`
+            : "Select a size"}
         </p>
+
       </div>
     </div>
   );
 }
 
-// ─── Main ShopPage ─────────────────────────────────────────────────────────────
-// Props:
-//   bagCount    — total item count from App.jsx
-//   onAddToBag  — function(shoe, size)
-//   onOpenCart  — function() opens the CartModal
-
+// ─── Shopping Page ─────────────────────────────────────────────────────────────
 export default function Shopping({ bagCount = 0, onAddToBag, onOpenCart }) {
   const { gender } = useParams();
+  const [searchParams] = useSearchParams();
+
   const [activeGender, setActiveGender] = useState(gender || "all");
-  const [activeFilter, setActiveFilter] = useState("All");
+  const [activeFilter, setActiveFilter] = useState(
+    searchParams.get("category") || "All"
+  );
   const [toast, setToast] = useState(null);
-
-  useEffect(() => {
-  setActiveGender(gender || "all");
-}, [gender]);
-
-console.log("gender param:", gender);
-console.log("activeGender:", activeGender);
-console.log("sample shoe gender:", shoes[0].gender);
 
   const filtered = shoes
     .filter((s) =>
       activeGender === "all"
         ? true
-        : s.gender === activeGender || s.gender === "unisex",
+        : s.gender === activeGender || s.gender === "unisex"
     )
     .filter((s) =>
-      activeFilter === "All" ? true : s.category === activeFilter,
+      activeFilter === "All" ? true : s.category === activeFilter
     );
+
   function handleAdd(shoe, size) {
     onAddToBag?.(shoe, size);
     setToast(`${shoe.name} — Size ${size} added`);
@@ -236,18 +202,15 @@ console.log("sample shoe gender:", shoes[0].gender);
       className="min-h-screen bg-[#111] text-[#f0f0f0]"
       style={{ fontFamily: "'Space Grotesk', sans-serif" }}
     >
-      {/* Bag bar */}
+
+      {/* ── Sticky top bar ── */}
       <div className="sticky top-0 z-40 bg-[#111] border-b border-[#2a2a2a] px-6 md:px-10 py-3 flex items-center justify-between">
         <div>
-          <p className="text-[11px] text-[#555] uppercase tracking-widest">
-            Shop
-          </p>
+          <p className="text-[11px] text-[#555] uppercase tracking-widest">Shop</p>
           <p className="text-[13px] font-semibold text-[#f0f0f0]">
             {filtered.length} style{filtered.length !== 1 ? "s" : ""}
           </p>
         </div>
-
-        {/* ← now calls onOpenCart */}
         <button
           onClick={onOpenCart}
           className="flex items-center gap-2.5 border border-[#89E900] text-[#89E900] px-5 py-2.5 rounded-full text-[13px] font-semibold hover:bg-[#89E900]/10 transition-colors"
@@ -264,7 +227,7 @@ console.log("sample shoe gender:", shoes[0].gender);
         </button>
       </div>
 
-      {/* Toast */}
+      {/* ── Toast ── */}
       <div
         className={`fixed top-20 right-6 z-50 bg-[#1a2200] border border-[#89E900] text-[#89E900] text-[12px] font-semibold px-4 py-2.5 rounded-lg transition-all duration-300 ${
           toast
@@ -275,49 +238,77 @@ console.log("sample shoe gender:", shoes[0].gender);
         {toast}
       </div>
 
-      <div className="px-6 md:px-10 pt-6 pb-2 flex gap-2">
-        {["all", "mens", "womens"].map((g) => (
-          <button
-            key={g}
-            onClick={() => setActiveGender(g)}
-            className={`text-[12px] font-semibold px-4 py-1.5 rounded-full border transition-all duration-150 capitalize
-        ${
-          activeGender === g
-            ? "bg-[#89E900] text-[#111] border-[#89E900]"
-            : "border-[#2a2a2a] text-[#666] hover:border-[#89E900] hover:text-[#89E900]"
-        }`}
-          >
-            {g === "all" ? "All" : g}
-          </button>
-        ))}
-      </div>
+      {/* ── Filters ── */}
+      <div className="px-6 md:px-10 pt-6 pb-6 flex flex-col gap-4">
 
-      {/* Category filters */}
-      <div className="px-6 md:px-10 pt-6 pb-4 flex gap-2 flex-wrap">
-        {CATEGORIES.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setActiveFilter(cat)}
-            className={`text-[12px] font-semibold px-4 py-1.5 rounded-full border transition-all duration-150
-              ${
-                activeFilter === cat
-                  ? "bg-[#89E900] text-[#111] border-[#89E900]"
-                  : "border-[#2a2a2a] text-[#666] hover:border-[#89E900] hover:text-[#89E900]"
-              }`}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
-
-      {/* Product grid */}
-      <div className="px-6 md:px-10 pb-20">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-          {filtered.map((shoe) => (
-            <ShoeCard key={shoe.id} shoe={shoe} onAdd={handleAdd} />
-          ))}
+        {/* Gender */}
+        <div>
+          <p className="text-[11px] text-[#555] uppercase tracking-widest mb-2">
+            Gender
+          </p>
+          <div className="flex gap-2">
+            {["all", "mens", "womens"].map((g) => (
+              <button
+                key={g}
+                onClick={() => setActiveGender(g)}
+                className={`text-[12px] font-semibold px-4 py-1.5 rounded-full border transition-all duration-150 capitalize
+                  ${activeGender === g
+                    ? "bg-[#89E900] text-[#111] border-[#89E900]"
+                    : "border-[#2a2a2a] text-[#666] hover:border-[#89E900] hover:text-[#89E900]"
+                  }`}
+              >
+                {g === "all" ? "All" : g}
+              </button>
+            ))}
+          </div>
         </div>
+
+        {/* Category */}
+        <div>
+          <p className="text-[11px] text-[#555] uppercase tracking-widest mb-2">
+            Category
+          </p>
+          <div className="flex gap-2 flex-wrap">
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveFilter(cat)}
+                className={`text-[12px] font-semibold px-4 py-1.5 rounded-full border transition-all duration-150
+                  ${activeFilter === cat
+                    ? "bg-[#89E900] text-[#111] border-[#89E900]"
+                    : "border-[#2a2a2a] text-[#666] hover:border-[#89E900] hover:text-[#89E900]"
+                  }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
+
       </div>
+
+      {/* ── Product grid ── */}
+      <div className="px-6 md:px-10 pb-20">
+        {filtered.length === 0 ? (
+          <div className="flex flex-col items-center justify-center py-24 gap-3 text-center">
+            <p className="text-[15px] font-semibold text-[#f0f0f0]">No styles found</p>
+            <p className="text-[12px] text-[#555]">Try a different gender or category filter</p>
+            <button
+              onClick={() => { setActiveGender("all"); setActiveFilter("All"); }}
+              className="mt-2 text-[12px] font-semibold text-[#89E900] border border-[#89E900]/40 px-5 py-2 rounded-full hover:bg-[#89E900]/10 transition-colors"
+            >
+              Clear filters
+            </button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            {filtered.map((shoe) => (
+              <ShoeCard key={shoe.id} shoe={shoe} onAdd={handleAdd} />
+            ))}
+          </div>
+        )}
+      </div>
+
     </div>
   );
 }

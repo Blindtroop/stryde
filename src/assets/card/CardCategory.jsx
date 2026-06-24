@@ -1,5 +1,9 @@
-export default function CardCategory({ image, title, category }) {
+import { Link } from "react-router-dom";
+
+
+export default function CardCategory({ image, title, category, link}) {
   return (
+    <Link to={link} className="block w-full"> 
     <div className="relative w-full h-[520px] rounded-3xl overflow-hidden group border border-neutral-100 shadow-sm ">
       
       {/* Product Image */}
@@ -27,5 +31,6 @@ export default function CardCategory({ image, title, category }) {
 
       </div>
     </div>
+    </Link>
   );
   }

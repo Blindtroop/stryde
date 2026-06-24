@@ -1,16 +1,16 @@
 [
   {
     "id": 1,
-    "name": "Stryde Phantom",
-    "sub": "Low Top Trainer",
-    "price": 8500,
-    "category": "Trainers",
+    "name": "Deniro Oscar Men’s Loafers",
+    "sub": "Loafer",
+    "price": 2400,
+    "category": "Formal",
     "gender": "mens",
      "images": [
-    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
-    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
-    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
-    "https://i.postimg.cc/4427fLcb/Untitled-(1).png"
+    "https://i.postimg.cc/zfq9Wgs0/formal-1-1.webp",
+    "https://i.postimg.cc/VNz3MCxg/formal-1-2.webp",
+    "https://i.postimg.cc/hGKHxdkM/formal-1-3.webp",
+    "https://i.postimg.cc/KYmdLM65/formal-1-4.webp"
   ],
     "sizes": ["40", "41", "42", "43", "44", "45"],
     "stock": "in",
@@ -21,7 +21,7 @@
     "name": "Stryde Apex",
     "sub": "Running Performance",
     "price": 11200,
-    "category": "Running",
+    "category": "Formal",
     "gender": "mens",
     "images": [
     "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
@@ -56,7 +56,7 @@
     "name": "Stryde Volt",
     "sub": "Court Sneaker",
     "price": 7900,
-    "category": "Ladies",
+    "category": "Comfort",
     "gender": "mens",
     "images": [
     "https://i.postimg.cc/WzNMBhQv/Untitled.png",
