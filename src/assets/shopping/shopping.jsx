@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import { FaBagShopping } from "react-icons/fa6";
-import shoes from "/Users/SHA 02/stryde/src/data/shoes.json";
+import shoes from "../../data/shoes.json";
 
 // ─── Derived categories from JSON ─────────────────────────────────────────────
 const CATEGORIES = ["All", ...new Set(shoes.map((s) => s.category))];
