@@ -1,6 +1,6 @@
 import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
-import Contact from '../contact/contact'
+import Contact from "../contact/contact";
 import { useState } from "react";
 
 const Footer = () => {
@@ -18,7 +18,7 @@ const Footer = () => {
     { name: "Instagram", icon: <FaInstagram />, href: "#" },
   ];
 
-  const [showContact, setShowContact] = useState(false)
+  const [showContact, setShowContact] = useState(false);
 
   return (
     <footer className="bg-[#222222] text-white text-sm font-sans">
@@ -44,13 +44,19 @@ const Footer = () => {
             <ul className="space-y-2">
               <li className="flex items-center">
                 <MdEmail className="mr-2" />
-                <a href="" className="hover:text-gray-300 transition duration-300">
+                <a
+                  href=""
+                  className="hover:text-gray-300 transition duration-300"
+                >
                   strydekicks@gmail.com
                 </a>
               </li>
               <li className="flex items-center">
                 <MdPhone className="mr-2" />
-                <a href="tel:" className="hover:text-gray-300 transition duration-300">
+                <a
+                  href="tel:"
+                  className="hover:text-gray-300 transition duration-300"
+                >
                   +254 115 112760
                 </a>
               </li>
@@ -79,13 +85,13 @@ const Footer = () => {
             <h3 className="text-lg font-semibold">Get in Touch</h3>
             <p>Have a question or want to work together?</p>
             <button
-              onClick={()=>setShowContact(true)}
+              onClick={() => setShowContact(true)}
               className="bg-[#222222] border border-[#89E900] rounded-xl text-white font-bold py-2 px-4 transition duration-300"
               aria-label="Contact us"
             >
               Contact Us
             </button>
-            {showContact && <Contact />}
+            {showContact && <Contact close={() => setShowContact(false)} />}
           </div>
         </div>
       </div>
