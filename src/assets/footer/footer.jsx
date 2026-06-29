@@ -1,5 +1,7 @@
 import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
+import Contact from '../contact/contact'
+import { useState } from "react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -15,6 +17,8 @@ const Footer = () => {
     { name: "LinkedIn", icon: <FaLinkedin />, href: "#" },
     { name: "Instagram", icon: <FaInstagram />, href: "#" },
   ];
+
+  const [showContact, setShowContact] = useState(false)
 
   return (
     <footer className="bg-[#222222] text-white text-sm font-sans">
@@ -75,11 +79,13 @@ const Footer = () => {
             <h3 className="text-lg font-semibold">Get in Touch</h3>
             <p>Have a question or want to work together?</p>
             <button
+              onClick={()=>setShowContact(true)}
               className="bg-[#222222] border border-[#89E900] rounded-xl text-white font-bold py-2 px-4 transition duration-300"
               aria-label="Contact us"
             >
               Contact Us
             </button>
+            {showContact && <Contact />}
           </div>
         </div>
       </div>
