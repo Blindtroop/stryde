@@ -18,14 +18,14 @@ import "./App.css";
 function Home({ onAddToBag, onOpenCart }) {
   return (
     <>
-      <ComingSoon />
-      {/* <Hero />
+      {/* <ComingSoon /> */}
+      <Hero />
       <Arrivals onAddToBag={onAddToBag} />
       <Flash onAddToBag={onAddToBag} onOpenCart={onOpenCart} />
       <Categories />
       <Action />
       <TrustedPartners />
-      <Footer /> */}
+      <Footer />
     </>
   );
 }
@@ -88,7 +88,7 @@ export default function App() {
 
   return (
     <>
-      {/* <Navbar bagCount={bagCount} onOpenCart={() => setCartOpen(true)} /> */}
+      <Navbar bagCount={bagCount} onOpenCart={() => setCartOpen(true)} />
 
       <Routes>
         <Route
