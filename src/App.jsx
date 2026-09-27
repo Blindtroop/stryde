@@ -18,14 +18,15 @@ import "./App.css";
 function Home({ onAddToBag, onOpenCart }) {
   return (
     <>
-      <ComingSoon />
-      {/* <Hero />
+      {/* <ComingSoon /> */}
+      <Navbar onOpenCart={onOpenCart} />
+      <Hero />
       <Arrivals onAddToBag={onAddToBag} />
       <Flash onAddToBag={onAddToBag} onOpenCart={onOpenCart} />
       <Categories />
       <Action />
       <TrustedPartners />
-      <Footer /> */}
+      <Footer />
     </>
   );
 }
