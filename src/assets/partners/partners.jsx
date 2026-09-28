@@ -24,7 +24,7 @@ function PartnerCard({ name, logo }) {
   return (
     <div
       onMouseLeave={() => setHovered(false)}
-      className="flex items-center justify-center h-44 w-94 rounded-2xl border cursor-pointer transition-all duration-300 text-black"
+      className="flex items-center justify-center h-28 md:h-44 w-full md:w-94 rounded-2xl border cursor-pointer transition-all duration-300 text-black"
       style={{
         color:'black',
         borderColor: hovered ? "#89E900" : "#333",
@@ -35,7 +35,7 @@ function PartnerCard({ name, logo }) {
       <img
         src={logo}
         alt={name}
-        className="w-36 h-14 object-contain transition-all duration-300"
+        className="w-24 h-10 md:w-36 md:h-14 object-contain transition-all duration-300"
         style={{
           filter: hovered
     ? "brightness(0) invert(0)"
@@ -49,7 +49,7 @@ function PartnerCard({ name, logo }) {
 export default function TrustedPartners() {
   return (
     <section
-      className="flex flex-col items-center py-20 px-10"
+      className="flex flex-col items-center py-12 px-4 md:py-20 md:px-10"
       >
       <span
         className="text-xs font-semibold uppercase tracking-widest mb-2"
@@ -59,7 +59,7 @@ export default function TrustedPartners() {
       </span>
 
       <h2
-        className="text-4xl font-bold uppercase text-center text-[#222222] mb-3"
+        className="text-2xl md:text-4xl font-bold uppercase text-center text-[#222222] mb-3"
         style={{ letterSpacing: "2px" }}
       >
         Our Trusted{" "}
@@ -67,11 +67,11 @@ export default function TrustedPartners() {
       </h2>
 
       <div
-        className="w-10 h-0.5 rounded-full mb-14"
+        className="w-10 h-0.5 rounded-full mb-8 md:mb-14"
         style={{ background: "#89E900" }}
       />
 
-      <div className="grid grid-cols-2 gap-6 w-full max-w-3xl">
+      <div className="grid grid-cols-2 gap-3 md:gap-6 w-full max-w-3xl">
         {partners.map((p) => (
           <PartnerCard key={p.name} name={p.name} logo={p.logo} />
         ))}

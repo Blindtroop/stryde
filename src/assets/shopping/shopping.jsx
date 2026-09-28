@@ -48,8 +48,8 @@ function ShoeCard({ shoe, onAdd }) {
     <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl overflow-hidden hover:border-[#89E900] hover:-translate-y-0.5 transition-all duration-200 flex flex-col">
 
       {/* ── Image area ── */}
-      <div className="bg-[#222] p-3 relative">
-        <div className="h-44 flex items-center justify-center overflow-hidden">
+      <div className="bg-[#222] p-2 sm:p-3 relative">
+        <div className="h-36 sm:h-44 flex items-center justify-center overflow-hidden">
           {activeImage ? (
             <img
               key={activeImage}
@@ -79,7 +79,7 @@ function ShoeCard({ shoe, onAdd }) {
       </div>
 
       {/* ── Card info ── */}
-      <div className="p-3.5 flex flex-col flex-1">
+      <div className="p-2.5 sm:p-3.5 flex flex-col flex-1">
 
         {/* Thumbnail strip — above title, only when multiple images */}
         {allImages.length > 1 && (
@@ -141,14 +141,14 @@ function ShoeCard({ shoe, onAdd }) {
         </div>
 
         {/* Price + add button */}
-        <div className="flex items-center justify-between mt-auto">
-          <span className="text-[15px] font-bold text-[#89E900]">
+        <div className="flex items-center justify-between gap-2 mt-auto">
+          <span className="text-[13px] sm:text-[15px] font-bold text-[#89E900]">
             KES {shoe.price.toLocaleString()}
           </span>
           <button
             onClick={handleAdd}
             disabled={isSoldOut}
-            className="bg-[#89E900] text-[#111] w-8 h-8 rounded-lg text-xl font-bold flex items-center justify-center hover:bg-[#a5ff1a] active:scale-95 transition-all disabled:bg-[#2a2a2a] disabled:text-[#555] disabled:cursor-not-allowed"
+            className="shrink-0 bg-[#89E900] text-[#111] w-8 h-8 rounded-lg text-xl font-bold flex items-center justify-center hover:bg-[#a5ff1a] active:scale-95 transition-all disabled:bg-[#2a2a2a] disabled:text-[#555] disabled:cursor-not-allowed"
           >
             +
           </button>
@@ -204,7 +204,7 @@ export default function Shopping({ bagCount = 0, onAddToBag, onOpenCart }) {
     >
 
       {/* ── Sticky top bar ── */}
-      <div className="sticky top-0 z-40 bg-[#111] border-b border-[#2a2a2a] px-6 md:px-10 py-3 flex items-center justify-between">
+      <div className="sticky top-0 z-40 bg-[#111] border-b border-[#2a2a2a] px-4 sm:px-6 md:px-10 py-3 flex items-center justify-between">
         <div>
           <p className="text-[11px] text-[#555] uppercase tracking-widest">Shop</p>
           <p className="text-[13px] font-semibold text-[#f0f0f0]">
@@ -213,7 +213,7 @@ export default function Shopping({ bagCount = 0, onAddToBag, onOpenCart }) {
         </div>
         <button
           onClick={onOpenCart}
-          className="flex items-center gap-2.5 border border-[#89E900] text-[#89E900] px-5 py-2.5 rounded-full text-[13px] font-semibold hover:bg-[#89E900]/10 transition-colors"
+          className="flex items-center gap-2 sm:gap-2.5 border border-[#89E900] text-[#89E900] px-4 sm:px-5 py-2.5 rounded-full text-[13px] font-semibold hover:bg-[#89E900]/10 transition-colors"
         >
           <FaBagShopping size={14} />
           Your Bag
@@ -229,7 +229,7 @@ export default function Shopping({ bagCount = 0, onAddToBag, onOpenCart }) {
 
       {/* ── Toast ── */}
       <div
-        className={`fixed top-20 right-6 z-50 bg-[#1a2200] border border-[#89E900] text-[#89E900] text-[12px] font-semibold px-4 py-2.5 rounded-lg transition-all duration-300 ${
+        className={`fixed top-20 right-4 sm:right-6 max-w-[calc(100vw-2rem)] z-50 bg-[#1a2200] border border-[#89E900] text-[#89E900] text-[12px] font-semibold px-4 py-2.5 rounded-lg transition-all duration-300 ${
           toast
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-2 pointer-events-none"
@@ -239,7 +239,7 @@ export default function Shopping({ bagCount = 0, onAddToBag, onOpenCart }) {
       </div>
 
       {/* ── Filters ── */}
-      <div className="px-6 md:px-10 pt-6 pb-6 flex flex-col gap-4">
+      <div className="px-4 sm:px-6 md:px-10 pt-6 pb-6 flex flex-col gap-4">
 
         {/* Gender */}
         <div>
@@ -288,7 +288,7 @@ export default function Shopping({ bagCount = 0, onAddToBag, onOpenCart }) {
       </div>
 
       {/* ── Product grid ── */}
-      <div className="px-6 md:px-10 pb-20">
+      <div className="px-4 sm:px-6 md:px-10 pb-20">
         {filtered.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-24 gap-3 text-center">
             <p className="text-[15px] font-semibold text-[#f0f0f0]">No styles found</p>
@@ -301,7 +301,7 @@ export default function Shopping({ bagCount = 0, onAddToBag, onOpenCart }) {
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
             {filtered.map((shoe) => (
               <ShoeCard key={shoe.id} shoe={shoe} onAdd={handleAdd} />
             ))}
