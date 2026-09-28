@@ -5,12 +5,13 @@ import { useState } from "react";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const [showForm, setShowForm] = useState(false);
-  const navLinks = [
-    { name: "Home", href: "#" },
-    { name: "Mens", href: "#" },
-    { name: "Womens", href: "#" },
-    { name: "Shopping", href: "#" },
+ const links = [
+    { to: "/", label: "Home" },
+    { to: "/shop/mens", label: "Mens" },
+    { to: "/shop/womens", label: "Women" },
+    { to: "/shop", label: "Shop" },
   ];
+
   const socialLinks = [
     { name: "Facebook", icon: <FaFacebook />, href: "#" },
     { name: "Twitter", icon: <FaTwitter />, href: "#" },
@@ -25,13 +26,13 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold font-sans">Navigation</h3>
             <ul className="space-y-2">
-              {navLinks.map((link) => (
-                <li key={link.name}>
+              {links.map((link) => (
+                <li key={link.label}>
                   <a
-                    href={link.href}
+                    href={link.to}
                     className="hover:text-gray-300 transition duration-300"
                   >
-                    {link.name}
+                    {link.label}
                   </a>
                 </li>
               ))}
